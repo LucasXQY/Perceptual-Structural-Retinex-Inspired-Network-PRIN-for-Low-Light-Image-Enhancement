@@ -1,0 +1,16 @@
+# Core
+torch>=2.0
+torchvision
+numpy
+pillow
+pandas
+
+# Metrics
+scikit-image
+scikit-learn
+lpips
+pyiqa
+pytorch-msssim
+
+# Complexity measurement (experiments/efficiency, experiments/variant_study)
+thop
