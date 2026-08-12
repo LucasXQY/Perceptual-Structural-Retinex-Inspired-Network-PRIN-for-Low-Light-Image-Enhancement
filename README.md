@@ -28,13 +28,29 @@ verified: download the enhanced result images from Google Drive and score them w
 
 ## Downloads (Google Drive)
 
-<!-- TODO: after uploading the two staging folders to Google Drive, replace the two
-     placeholder URLs below with your share links. -->
+### Checkpoints (≈ 1.8 GB total — place under `checkpoints/`, see [checkpoints/README.md](checkpoints/README.md))
 
-| Resource | Size | Link |
+| Item | Contents | Link |
 |---|---|---|
-| **Checkpoints** (`checkpoints/` — drop into the repo root) | ≈ 1.3 GB | [Google Drive](https://TODO-GDRIVE-CHECKPOINTS-LINK) |
-| **Result images** (`results/` — enhanced outputs of every experiment) | ≈ 1.0 GB | [Google Drive](https://TODO-GDRIVE-RESULTS-LINK) |
+| `prin_lolv1.pth` | PRIN trained on LOL-v1 | [Google Drive](https://drive.google.com/file/d/1aDnSX0CCXSPgGwsV03JI9gGZpehvatPd/view?usp=sharing) |
+| `prin_lolv2real.pth` | PRIN trained on LOL-v2-Real | [Google Drive](https://drive.google.com/file/d/1WX2giiRfjcgHqXcwv2kKHJC8nUdupsgu/view?usp=sharing) |
+| `prin_lolv2syn.pth` | PRIN trained on LOL-v2-Syn | [Google Drive](https://drive.google.com/file/d/1P0JGLlUYk_kkmWgrfjoph2FjOC_tgmOe/view?usp=sharing) |
+| `module_ablation/` | 4 module-ablation checkpoints (LOL-v2-Real) | [Google Drive](https://drive.google.com/drive/folders/13rK3wy9BMPeARP5M0uIR_dQi-Ll1uFSO?usp=sharing) |
+| `scale_ablation/` | 7 scale-factor-ablation checkpoints, s0–s6 (LOL-v1) | [Google Drive](https://drive.google.com/drive/folders/19ijwjQCOiwD4r_5Q_p_GdOUYFt2aIAi6?usp=sharing) |
+| `loss_ablation/` | 5 loss-group-ablation checkpoints (LOL-v1) | [Google Drive](https://drive.google.com/drive/folders/12mqOD5WIB255teTqoLMvkSfB7R0rh9bz?usp=sharing) |
+
+### Result images (≈ 1.0 GB total — enhanced outputs of every experiment)
+
+| Folder | Contents | Link |
+|---|---|---|
+| `main_lolv1/` | LOL-v1 test set: enhanced / reflectance / illumination | [Google Drive](https://drive.google.com/drive/folders/1vEGBHZJ2MkZ2ofszVCdKgHNl0D27kSU_?usp=sharing) |
+| `main_lolv2real/` | LOL-v2-Real test set: enhanced / reflectance / illumination | [Google Drive](https://drive.google.com/drive/folders/19Hbq5HhgRRdq4e9JKhsaOq0jt9pUwBN5?usp=sharing) |
+| `main_lolv2syn/` | LOL-v2-Syn test set: enhanced / reflectance / illumination | [Google Drive](https://drive.google.com/drive/folders/15ed7aXu4QBQTI_mtdjK8NsyB0WCeW5zh?usp=sharing) |
+| `module_ablation/` | module-ablation enhanced outputs (4 variants) | [Google Drive](https://drive.google.com/drive/folders/1rLJRuwJNzJE5YYYoszZVhDXGQQKVEiJx?usp=drive_link) |
+| `scale_ablation/` | scale-ablation enhanced outputs (s0–s6) | [Google Drive](https://drive.google.com/drive/folders/1TxEImsguKTmx9WOOufIrGbsxGcA55EuR?usp=drive_link) |
+| `loss_ablation/` | loss-group-ablation outputs (full / wo_g1 … wo_g4) | [Google Drive](https://drive.google.com/drive/folders/1A3dzN29HQkkCqFRbCfQm7RlsOREbKMFp?usp=sharing) |
+| `variant_study/` | variant-study outputs (V1a / V1b / V3) | [Google Drive](https://drive.google.com/drive/folders/1q95SVIESrHaHuPKwaE5JdHQMx9IlyMyk?usp=drive_link) |
+| `nonref_zeroshot/` | zero-shot outputs on DICM / LIME / MEF / NPE / VV | [Google Drive](https://drive.google.com/drive/folders/1ccV5pG6mKvhJa6qyCW0ficBbkuiZlujD?usp=drive_link) |
 
 ### Checkpoint inventory
 
@@ -48,7 +64,7 @@ verified: download the enhanced result images from Google Drive and score them w
 | `checkpoints/module_ablation/wsair_only.pth` | `PRIN_WSAIROnly` | LOL-v2-Real | Module ablation (+WSAIR row) |
 | `checkpoints/module_ablation/wdgrr_wsair.pth` | `PRIN_WDGRR_WSAIR` | LOL-v2-Real | Module ablation (+WDGRR+WSAIR row) |
 | `checkpoints/scale_ablation/s0_default.pth` … `s6_sobel_high.pth` | `PRIN` (variant scales) | LOL-v1 | Scale-factor ablation (7 variants) |
-| `checkpoints/loss_ablation/` | — | LOL-v1 | Loss-group ablation — *to be added* |
+| `checkpoints/loss_ablation/full.pth`, `wo_g1.pth` … `wo_g4.pth` | `PRIN` | LOL-v1 | Loss-group ablation (5 variants) |
 
 Notes:
 - The module-ablation *full* row is simply the main checkpoint `prin_lolv2real.pth`.
@@ -75,7 +91,7 @@ PRIN/
     ├── variant_study/          # V1a / V1b / V2 / V3 metric CSVs + complexity script
     ├── module_ablation/        # WDGRR / WSAIR / DCE ablation harness + metric CSVs
     ├── scale_ablation/         # wavelet-scale ablation harness + metric CSVs (s0–s6)
-    ├── loss_ablation/          # loss-group ablation (placeholder — see its README)
+    ├── loss_ablation/          # loss-group ablation (G1–G4): metric CSVs + training logs
     ├── nonref_lol/             # MUSIQ / LIQE / Q-Align on the LOL test sets
     ├── nonref_zeroshot/        # zero-shot DICM / LIME / MEF / NPE / VV study
     ├── gtmean_study/           # GT-mean correction study
@@ -181,16 +197,18 @@ Every experiment in the paper (and the revised manuscript) maps to one folder un
 - **Purpose:** quantitative comparison on LOL-v1 / LOL-v2-Real / LOL-v2-Syn.
 - **Reproduce:** `test.py` (three checkpoints) + `run_evaluate.py` per dataset (see Quick start).
 - **Artifacts:** `experiments/main_results/` CSVs; enhanced/reflectance/illumination images on
-  Google Drive under `results/main_*`.
+  Google Drive — [LOL-v1](https://drive.google.com/drive/folders/1vEGBHZJ2MkZ2ofszVCdKgHNl0D27kSU_?usp=sharing),
+  [LOL-v2-Real](https://drive.google.com/drive/folders/19Hbq5HhgRRdq4e9JKhsaOq0jt9pUwBN5?usp=sharing),
+  [LOL-v2-Syn](https://drive.google.com/drive/folders/15ed7aXu4QBQTI_mtdjK8NsyB0WCeW5zh?usp=sharing).
 
 ### B. Variant study (V1a / V1b / V2 / V3)
 
 - **Purpose:** architecture evolution study; **V2 is the final PRIN** (24.41 M params).
 - **Results:** enhanced images for all variants are available at
-  [Google Drive](https://TODO-GDRIVE-RESULTS-LINK) under `results/variant_study/`
+  [Google Drive](https://drive.google.com/drive/folders/1q95SVIESrHaHuPKwaE5JdHQMx9IlyMyk?usp=drive_link)
   (`v1a_lolv1`, `v1b_lolv1`, `v1b_lolv2real`, `v3_lolv1`, `v3_lolv2real`, `v3_lolv2syn`;
-  V2 = `results/main_*`). Scoring any of these folders with `run_evaluate.py` reproduces the
-  table numbers.
+  V2 = the main-results folders). Scoring any of these folders with `run_evaluate.py` reproduces
+  the table numbers.
 - **Artifacts:** `experiments/variant_study/metrics_v{1a,1b,2,3}_*.csv` — per-image metrics
   for each variant (v2 = final PRIN, identical to `main_results`).
 
@@ -201,9 +219,9 @@ Every experiment in the paper (and the revised manuscript) maps to one folder un
 - **Reproduce:** set `VARIANT` in `experiments/module_ablation/test_module_ablation.py` to one of
   `dce_only | wdgrr_only | wsair_only | wdgrr_wsair`, run it, then score with `run_evaluate.py`
   (GT: `data/lolv2real/test/high`). The *full* row is the main `prin_lolv2real.pth` checkpoint.
-- **Artifacts:** `experiments/module_ablation/metrics_*.csv`; enhanced images on Drive
-  (`results/module_ablation/*`). The Baseline-row weights are not archived; its numbers are in
-  the paper table.
+- **Artifacts:** `experiments/module_ablation/metrics_*.csv`; enhanced images on
+  [Google Drive](https://drive.google.com/drive/folders/1rLJRuwJNzJE5YYYoszZVhDXGQQKVEiJx?usp=drive_link).
+  The Baseline-row weights are not archived; its numbers are in the paper table.
 
 ### D. Wavelet-scale-factor ablation (s0–s6)
 
@@ -215,15 +233,24 @@ Every experiment in the paper (and the revised manuscript) maps to one folder un
 - **Reproduce:** `python experiments/scale_ablation/test_scale_ablation.py` — runs all seven
   checkpoints and writes per-variant CSVs plus a delta-vs-s0 summary automatically.
 - **Artifacts:** `experiments/scale_ablation/metrics_params_s*.csv`,
-  `summary_params_ablation.{csv,md}`; enhanced images on Drive (`results/scale_ablation/*`).
+  `summary_params_ablation.{csv,md}`; enhanced images on
+  [Google Drive](https://drive.google.com/drive/folders/1TxEImsguKTmx9WOOufIrGbsxGcA55EuR?usp=drive_link).
 
 ### E. Loss-group ablation (G1–G4)
 
 - **Purpose:** leave-one-group-out ablation of the 8-term loss —
   G1 structure/edge (L_ssim + L_edge), G2 frequency (L_wav), G3 decomposition
   (L_base + L_illum), G4 color/exposure (L_col + L_oe); L_rec always on.
-- **Status:** checkpoints and metric CSVs for the five runs (full + four w/o-groups) **will be
-  added** to the Google Drive checkpoints folder. See `experiments/loss_ablation/README.md`.
+- **Checkpoints:** `full.pth`, `wo_g1.pth` … `wo_g4.pth` via the
+  [Google Drive folder](https://drive.google.com/drive/folders/12mqOD5WIB255teTqoLMvkSfB7R0rh9bz?usp=sharing)
+  (download into `checkpoints/loss_ablation/`); all five are plain `PRIN` state dicts, so
+  `test.py` + `evaluate.py` reproduce the numbers directly.
+- **Data:** `experiments/loss_ablation/` — `metrics_summary.csv`, per-image
+  `metrics_*.csv`, and per-epoch `train_log_*.csv` (the removed group's loss columns are
+  identically zero in each `w/o` log). See `experiments/loss_ablation/README.md` for the
+  grouping and the results table.
+- **Result images:** enhanced outputs of all five variants on the
+  [Google Drive results folder](https://drive.google.com/drive/folders/1A3dzN29HQkkCqFRbCfQm7RlsOREbKMFp?usp=sharing).
 
 ### F. No-reference perceptual quality on the LOL test sets
 
@@ -249,7 +276,9 @@ Every experiment in the paper (and the revised manuscript) maps to one folder un
   `--skip-infer` (re-score only), `--sources <dir ...>` (score any result folders with the
   same protocol).
 - **Artifacts:** `experiments/nonref_zeroshot/{metrics_summary,qalign_summary}.{csv,md}`;
-  our enhanced outputs on Drive (`results/nonref_zeroshot/<dataset>/prin_*`).
+  our enhanced outputs on
+  [Google Drive](https://drive.google.com/drive/folders/1ccV5pG6mKvhJa6qyCW0ficBbkuiZlujD?usp=drive_link)
+  (`<dataset>/prin_*` subfolders).
 
 ### H. GT-mean correction study
 
